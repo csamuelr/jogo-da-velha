@@ -1,0 +1,74 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes background_animation {
+    0%{
+        background-position: 0 0, 0 0;
+    }
+    50%{
+        background-position: 50% 0, 100% 0;
+    }
+    100%{
+        background-position: 100% 0, 100% 0;
+    }
+}
+
+body{
+    background: #e8d09a;
+    background-image: url("icons/back-game.png"), url("icons/sol.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom;
+    animation: background_animation 60s linear infinite;
+}
+
+.game{    
+    height: 40%;
+    width: 40%;
+    left: 30%;
+    right: 30%;
+    top: 20%;
+    background-color: black;
+    position: absolute;
+}
+
+.info{
+    height: 15%;
+    width: 40%;
+    left: 30%;
+    right: 30%;
+    top: 5%;
+    position: absolute;
+    background-color: blue;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.controle{
+    height: 15%;
+    width: 40%;
+    left: 30%;
+    right: 30%;
+    top: 60%;
+    position: absolute;
+    background-color: blue;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    vertical-align: center;
+}
+
+.btn{
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+img{
+    height: 100px;
+    width: 100;
+}
