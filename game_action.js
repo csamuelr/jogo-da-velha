@@ -212,17 +212,24 @@ $(document).ready(function(){
             }
           });
         }
-        else{
-
-          $('.btn-game').each(function(i){
-            if($(this).val() != ''){
-              game_over = true;
-            }
-            else{
-              game_over = false;
-            }
-          });            
-        }
+       else if(caso8(values)){
+         // 2 5 8
+         game_over = true; 
+         console.log('Caso 8');
+         $('#desfazer_jogada').prop('disabled', true);
+         $('.btn-game').each(function(i){
+           if(i == 2 || i == 5 || i == 8){
+             $(this).prop("class", "btn btn-success");
+           }
+           else{
+             $(this).prop("class", "btn btn-outline-danger");
+             $(this).prop("disabled", true);
+           }
+         });
+       }else if(gameover(values)){
+         game_over = true
+           
+       }          
     }
 
     if(game_over){
@@ -243,10 +250,33 @@ $(document).ready(function(){
     }  
   }
 
+  function gameover(values){
+    var cont = 0;
+    for (var i = 0; i <9; i++){
+      if(values[i] != ''){
+        cont +=1;
+      }
+    }
+    console.log(cont)
+    if(cont == 9){
+        $('.resultado').html("Game Over");
+        $('.game').slideUp(3000);
+        $('.game').slideDown();
+        $('.game').html("<h1>XO</h><br><h3>Game Over</h3>" );
+        return true;
+      }else{
+        game_over = false;
+      }
+    }
+    
+
   function caso2(values){
     if(values[2] != ''){
       if(values[2] == values[4] && values[4] == values[6]){
         $('.resultado').html("Vencedor: " + values[2]);
+        $('.game').slideUp();
+        $('.game').slideDown();
+        $('.game').html("<h1>" + values[2] + "</h><br><h3>Vencedor</h3>" );
         return true;
       }
     }
@@ -256,6 +286,9 @@ $(document).ready(function(){
     if(values[0] != ''){
       if(values[0] == values[1] && values[1] == values[2]){
         $('.resultado').html("Vencedor: " + values[0]);
+        $('.game').slideUp();
+        $('.game').slideDown();
+        $('.game').html("<h1>" + values[0] + "</h><br><h3>Vencedor</h3>" );
         return true;
       }
     }
@@ -265,6 +298,9 @@ $(document).ready(function(){
     if(values[3]){
       if(values[3] == values[4] && values[4] == values[5]){
         $('.resultado').html("Vencedor: " + values[3]);
+        $('.game').slideUp();
+        $('.game').slideDown();
+        $('.game').html("<h1>" + values[3] + "</h><br><h3>Vencedor</h3>" );
         return true;
       }
     }
@@ -274,6 +310,9 @@ $(document).ready(function(){
     if(values[6]){
       if(values[6] == values[7] && values[7] == values[8]){
         $('.resultado').html("Vencedor: " + values[6]);
+        $('.game').slideUp();
+        $('.game').slideDown();
+        $('.game').html("<h1>" + values[6] + "</h><br><h3>Vencedor</h3>" );
         return true;
       }
     }
@@ -283,6 +322,9 @@ $(document).ready(function(){
     if(values[0] != ''){
       if(values[0] == values[3] && values[3] == values[6]){
         $('.resultado').html("Vencedor: " + values[0]);
+        $('.game').slideUp();
+        $('.game').slideDown();
+        $('.game').html("<h1>" + values[0] + "</h><br><h3>Vencedor</h3>" );
         return true;
       }
     }
@@ -292,6 +334,9 @@ $(document).ready(function(){
     if(values[1] != ''){
       if(values[1] == values[4] && values[4] == values[7]){
         $('.resultado').html("Vencedor: " + values[1]);
+        $('.game').slideUp();
+        $('.game').slideDown();
+        $('.game').html("<h1>" + values[1] + "</h><br><h3>Vencedor</h3>" );
         return true;
       }
     }
@@ -301,11 +346,13 @@ $(document).ready(function(){
     if(values[2] != ''){
       if(values[2] == values[5] && values[5] == values[8]){
         $('.resultado').html("Vencedor: " + values[2]);
+        $('.game').slideUp();
+        $('.game').slideDown();
+        $('.game').html("<h1>" + values[2] + "</h><br><h3>Vencedor</h3>" );
         return true;
       }
     }
   }
-
 
 /********************************************
 *                                          *
