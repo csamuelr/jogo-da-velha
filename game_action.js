@@ -308,4 +308,53 @@ $(document).ready(function(){
       }
     }
 
+    var dict = {'Em 1944 foi o primeiro ano de atividades de ExpoCrato':true, 'Padre Cícero nasceu em 1844 na cidade de Juazeiro do Norte, onde também foi a cidade de sua morte':false, 'O Caldeirão da Santa Cruz do Deserto foi um dos movimentos messiânicos que surgiu nas terras de Barbalha, Ceará':false, 'Atualmente, o Geopark do Araripe é o único geoparque do Brasil e o primeiro da América latina':true, 'A cidade de Crato tem 255 de emancipação.':true, 'Juazeiro do Norte era apenas um distrito do Crato.':true, 'Quando ainda era uma vila pertencente ao Crato, Juazeiro chamava-se Tabuleiro Grande.':true, 'Crato era apenas um distrito de Juazeiro do Norte. ':false, 'Em 3 de maio de 1817, uma pequena vila do interior do Ceará proclamou a República do Crato.':true, 'Bárbara de Alencar é tia do escritor José de Alencar':false, 'Bárbara de Alencar foi a primeira presa política do Brasil.':true}
+
+    var modalConfirm = function(callback){
+      
+      $("#desfazer_jogada").on("click", function(){
+        $("#myModalLabel").html('Padre Cícero nasceu em 1844 na cidade de Juazeiro do Norte, onde também foi a cidade de sua morte');
+        $("#mi-modal").modal('show');
+      });
+
+      $("#modal-btn-si").on("click", function(){
+        callback(true);
+        $("#mi-modal").modal('hide');
+      });
+      
+      $("#modal-btn-no").on("click", function(){
+        callback(false);
+        $("#mi-modal").modal('hide');
+      });
+    };
+
+    modalConfirm(function(confirm){
+
+      if(confirm == false){
+        alert("teste");
+          var aux = jogadas[jogadas.length - 2];
+
+          b = $(aux).val();
+
+          if(b){
+            $('.btn-game').each(function(i){
+              if(i == (jogadas[jogadas.length - 1]) ){
+                $(this).val('');
+                $(this).prop('disabled', false);
+              }
+
+            if(vez){
+              vez = 0;
+            }else{
+              vez = 1;
+            }
+            });
+          }
+
+          var aux = jogadas[jogadas.length - 1];
+      }else{
+      }
+
+    });
+
 });
