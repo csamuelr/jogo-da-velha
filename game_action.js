@@ -5,27 +5,6 @@ $(document).ready(function(){
 
     jogadas = new Array();
 
-    $('#desfazer_jogada').click(function(e){
-        e.preventDefault(); 
-        b = confirm($(jogadas[jogadas.length - 2]).val() );
-
-       if(b){
-        $('.btn-game').each(function(i){
-          if(i == (jogadas[jogadas.length - 1]) ){
-            $(this).val('');
-          }
-
-          if(vez){
-            vez = 0;
-          }
-          else{
-            vez = 1;
-          }
-
-        });
-       }
-    });
-
     $('#reiniciar').click(function(e){
         e.preventDefault();
         $('.game').html();
@@ -331,7 +310,6 @@ $(document).ready(function(){
     modalConfirm(function(confirm){
 
       if(confirm == false){
-        alert("teste");
           var aux = jogadas[jogadas.length - 2];
 
           b = $(aux).val();
