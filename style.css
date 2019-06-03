@@ -22,57 +22,51 @@ body{
     background-repeat: repeat-x;
 }
 
-/* .body{   
-    background-image: url("icons/sol.png");
-    background-repeat: no-repeat, no-repeat;
-    background-position: left bottom;
-    animation: background_animation 60s linear infinite;
-} */
-
 .back-game{
     background-image: url("icons/nordeste.jpg");
     width: 100%;
     height: 100%;
 }
-.container{
-    /* opacity: 0.7; */
-}
+
 .game{    
     height: 45%;
     width: 40%;
     left: 30%;
     right: 30%;
     top: 20%;
-    /* background-color: #f2ceae; */
-    position: absolute;
-   
+    background-color: white;
+    opacity: 0.7;
+    position: absolute;   
 }
 
 .info{
-    height: 15%;
+    height: 10%;
     width: 40%;
     left: 30%;
     right: 30%;
-    top: 5%;
+    top: 10%;
     position: absolute;
-    background-color: #a66946;
-   
+    background-color: #171717;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    opacity: 0.8;
 }
 
 .controle{
-    height: 15%;
+    height: 10%;
     width: 40%;
     left: 30%;
     right: 30%;
-    top: 60%;
+    top: 61%;
     position: absolute;
-    background-color: #a66946;
+    background-color: #171717;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     text-align: center;
     display: flex;
     flex-direction: column;
     vertical-align: center;
+    opacity: 0.8;
    
 }
 
@@ -83,22 +77,6 @@ body{
     vertical-align: center;
 }
 
-/* 
-.x{
-    height: 50%;
-    width: 50%;
-    color: #000;
-    margin-top: 5%;
-    margin-left: 5%;
-    margin-bottom: 25%;
-    background-color: white;
-    border: 1px solid;
-    border-color:  #000;
-    border-radius: 5px;
-    font-size: 30pt;
-
-} */
-
 .btn{
     margin-left: 4px;
     margin-right: 2px;
@@ -107,9 +85,27 @@ body{
 }
 
 .btn-sm{
-    margin-top: 10%;
-    height: 90%;
-    width: 80%;
+    margin-top: 5%;
     margin-left: 3%;
     margin-right: 3%;
+    background-color: #292727;
+    font-size: 12pt;    
+}
+
+.x{
+    color: white;
+    font-size: 30pt;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    vertical-align: center;
+}
+
+.o{
+    color: white;
+    font-size: 30pt;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    vertical-align: center;
 }

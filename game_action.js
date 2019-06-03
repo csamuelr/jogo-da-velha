@@ -42,7 +42,8 @@ $(document).ready(function(){
     $('.btn-game').css({'width':'32%', 'height':'32%', 'font-size':'35pt', 'color':'black'});
     $('#desfazer_jogada').prop('disabled', true);
   }
-
+  
+  $('.x').css({'color':'green'})
   $('.btn-game').each(function(i){
     
       $('#desfazer_jogada').prop('disabled', false);
@@ -56,17 +57,23 @@ $(document).ready(function(){
           }
         });
 
-        if(vez == 0){          
+        if(vez == 0){
+            $('.o').css({'color':'green'});          
             $(this).val("X");
             $(this).prop("disabled", true);              
             // $(this).css({'background-image': 'url("icons/cacto.png', 'background-size': 'contain'});
-            vez = 1;                        
+            vez = 1;       
+            // $('.o').css({'color':'green'}) 
+            $('.x').css({'color':'white'});
+
         }
         else{
+            $('.x').css({'color':'green'})
             $(this).val('O');
             $(this).prop("disabled", true);
             // $(this).css({'background-image': 'url("icons/praia.png', 'background-size': 'contain'});
             vez = 0;
+            $('.o').css({'color':'white'});
         }
         check();
       });      
