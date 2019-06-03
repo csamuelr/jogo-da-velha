@@ -5,7 +5,7 @@ body{
 
 @keyframes background_animation {
     0%{
-        background-position: 0 0, 0 0;
+        background-position: 0 0, 00 0;
     }
     50%{
         background-position: 50% 0, 100% 0;
@@ -15,22 +15,37 @@ body{
     }
 }
 
+
 body{
-    background: #e8d09a;
-    background-image: url("icons/back-game.png"), url("icons/sol.png");
+    background-image:  url("icons/nordeste.jpg") ;
+    /* background-image: url("icons/back-game.png"); */
+    background-repeat: repeat-x;
+}
+
+/* .body{   
+    background-image: url("icons/sol.png");
     background-repeat: no-repeat, no-repeat;
     background-position: left bottom;
     animation: background_animation 60s linear infinite;
-}
+} */
 
+.back-game{
+    background-image: url("icons/nordeste.jpg");
+    width: 100%;
+    height: 100%;
+}
+.container{
+    /* opacity: 0.7; */
+}
 .game{    
-    height: 40%;
+    height: 45%;
     width: 40%;
     left: 30%;
     right: 30%;
     top: 20%;
-    background-color: #f2ceae;
+    /* background-color: #f2ceae; */
     position: absolute;
+   
 }
 
 .info{
@@ -41,10 +56,7 @@ body{
     top: 5%;
     position: absolute;
     background-color: #a66946;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-top: 2px solid ;
-    border-top-color: #000;
+   
 }
 
 .controle{
@@ -61,20 +73,43 @@ body{
     display: flex;
     flex-direction: column;
     vertical-align: center;
-    border-bottom: 2px solid ;
-    border-bottom-color: #000;
+   
 }
 
+.btns-game{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    vertical-align: center;
+}
+
+/* 
+.x{
+    height: 50%;
+    width: 50%;
+    color: #000;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-bottom: 25%;
+    background-color: white;
+    border: 1px solid;
+    border-color:  #000;
+    border-radius: 5px;
+    font-size: 30pt;
+
+} */
+
 .btn{
-    margin-left: 2px;
+    margin-left: 3px;
     margin-right: 2px;
     margin-top: 2px;
     margin-bottom: 2px;
 }
 
-
-
-img{
-    height: 100px;
-    width: 100;
+.btn-sm{
+    margin-top: 10%;
+    height: 90%;
+    width: 80%;
+    margin-left: 3%;
+    margin-right: 3%;
 }

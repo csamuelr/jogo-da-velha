@@ -26,12 +26,12 @@ $(document).ready(function(){
   nova_partida();
 
   function nova_partida(){
-    var html = "<div class='col'>";
+    var html = "<div class='col btns-game'>";
 
     for(var i = 0; i < arg; i++){
         html += "<div class='row'>";
         for(var j = 0; j < arg; j++){
-          html += "<input class='btn btn-outline-light btn-game' type='button' value=''></input>"
+          html += "<input class='btn btn-outline-dark btn-game' type='button' value=''></input>"
         }
         html += "</div>"
     }
@@ -40,11 +40,12 @@ $(document).ready(function(){
   
     $('.game').html(html);
     $('.btn-game').css({'width':'32%', 'height':'32%', 'font-size':'35pt', 'color':'black'});
-
+    $('#desfazer_jogada').prop('disabled', true);
   }
 
   $('.btn-game').each(function(i){
-      
+    
+      $('#desfazer_jogada').prop('disabled', false);
       $(this).click(function(e){
         jogadas.push($(this), i);         
         
@@ -84,10 +85,12 @@ $(document).ready(function(){
         if(caso1(values)){
           // 0 4 8
           game_over = true;
+          $('#desfazer_jogada').prop('disabled', true);
           console.log('Caso 1');
           $('.btn-game').each(function(i){
             if(i == 0 || i == 4 || i == 8){
               $(this).prop("class", "btn btn-success");
+              
             }
             else{
               $(this).prop("class", "btn btn-outline-danger");
@@ -99,6 +102,7 @@ $(document).ready(function(){
         else if(caso2(values)){
           // 2 4 6
           game_over = true; 
+          $('#desfazer_jogada').prop('disabled', true);
           console.log('Caso 2');
           $('.btn-game').each(function(i){
             if(i == 2 || i == 4 || i == 6){
@@ -114,6 +118,7 @@ $(document).ready(function(){
         else if(caso3(values)){
           // 0 1 2
           game_over = true; 
+          $('#desfazer_jogada').prop('disabled', true);
           console.log('Caso 3');
           $('.btn-game').each(function(i){
             if(i == 0 || i == 1 || i == 2){
@@ -129,6 +134,7 @@ $(document).ready(function(){
           // 3 4 5
           game_over = true; 
           console.log('Caso 4');
+          $('#desfazer_jogada').prop('disabled', true);
           $('.btn-game').each(function(i){
             if(i == 3 || i == 4 || i == 5){
               $(this).prop("class", "btn btn-success");
@@ -143,6 +149,7 @@ $(document).ready(function(){
           // 6 7 8
           game_over = true; 
           console.log('Caso 5');
+          $('#desfazer_jogada').prop('disabled', true);
           $('.btn-game').each(function(i){
             if(i == 6 || i == 7 || i == 8){
               $(this).prop("class", "btn btn-success");
@@ -157,6 +164,7 @@ $(document).ready(function(){
           // 0 3 6
           game_over = true; 
           console.log('Caso 6');
+          $('#desfazer_jogada').prop('disabled', true);
           $('.btn-game').each(function(i){
             if(i == 0 || i == 3 || i == 6){
               $(this).prop("class", "btn btn-success");
@@ -170,6 +178,7 @@ $(document).ready(function(){
         else if(caso7(values)){
           // 1 4 7
           game_over = true; 
+          $('#desfazer_jogada').prop('disabled', true);
           console.log('Caso 7');
           $('.btn-game').each(function(i){
             if(i == 1 || i == 4 || i == 7){
@@ -185,6 +194,7 @@ $(document).ready(function(){
           // 2 5 8
           game_over = true; 
           console.log('Caso 8');
+          $('#desfazer_jogada').prop('disabled', true);
           $('.btn-game').each(function(i){
             if(i == 2 || i == 5 || i == 8){
               $(this).prop("class", "btn btn-success");
@@ -294,7 +304,7 @@ $(document).ready(function(){
 *                                          *
 ********************************************/
 
-posicao = new Array(1);
+posicao = new Array();
 var text = '{ "questoes" : [' + 
     '{"questao":"Em 1944 foi o primeiro ano de atividades de ExpoCrato", "resposta":true},' + 
     '{"questao":"Padre Cícero nasceu em 1844 na cidade de Juazeiro do Norte, onde também foi a cidade de sua morte", "resposta":false},' + 
@@ -306,7 +316,7 @@ var text = '{ "questoes" : [' +
     '{"questao":"Crato era apenas um distrito de Juazeiro do Norte.", "resposta":false},' + 
     '{"questao":"Em 3 de maio de 1817, uma pequena vila do interior do Ceará proclamou a República do Crato.", "resposta":true},' + 
     '{"questao":"Bárbara de Alencar é tia do escritor José de Alencar", "resposta":false},' +
-    '{"questao":"Bárbara de Alencar foi a primeira presa política do Brasil.", "resposta":true}' +
+    '{"questao":"Bárbara de Alencar foi a primeira presioneira política do Brasil.", "resposta":true}' +
   ']}';
 
 var dict = JSON.parse(text);
@@ -318,18 +328,17 @@ function posicao_random(){
   while(posicao.indexOf(aux) > 0){
     aux =  Math.floor(Math.random() * (Object.keys(dict.questoes).length))
   }
-  posicao[0] = aux;
-  console.log(posicao[0]);
-  return posicao[0];
+  posicao.push(aux);
+  console.log(posicao[posicao.length - 1]);
+  return posicao[posicao.length - 1];
 }
 
-function questoes(){
-
-  p = posicao_random();
-
+function questoes(){  
+  var p;
   var modalConfirm = function(callback){
     
     $("#desfazer_jogada").on("click", function(){
+      p = posicao_random();
       $("#myModalLabel").html(dict.questoes[p].questao);
       
       $("#mi-modal").modal('show');
@@ -347,8 +356,8 @@ function questoes(){
   };
 
   modalConfirm(function(confirm){
-    console.log(dict.questoes[p].resposta);
-    console.log(confirm);
+    // console.log(dict.questoes[p].resposta);
+    // console.log(confirm);
     if(confirm == dict.questoes[p].resposta){
 
       var aux = jogadas[jogadas.length - 2];
