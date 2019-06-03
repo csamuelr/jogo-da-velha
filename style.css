@@ -29,7 +29,7 @@ body{
     left: 30%;
     right: 30%;
     top: 20%;
-    background-color: black;
+    background-color: #f2ceae;
     position: absolute;
 }
 
@@ -40,9 +40,11 @@ body{
     right: 30%;
     top: 5%;
     position: absolute;
-    background-color: blue;
+    background-color: #a66946;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    border-top: 2px solid ;
+    border-top-color: #000;
 }
 
 .controle{
@@ -52,13 +54,15 @@ body{
     right: 30%;
     top: 60%;
     position: absolute;
-    background-color: blue;
+    background-color: #a66946;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     text-align: center;
     display: flex;
     flex-direction: column;
     vertical-align: center;
+    border-bottom: 2px solid ;
+    border-bottom-color: #000;
 }
 
 .btn{
@@ -67,6 +71,8 @@ body{
     margin-top: 2px;
     margin-bottom: 2px;
 }
+
+
 
 img{
     height: 100px;
