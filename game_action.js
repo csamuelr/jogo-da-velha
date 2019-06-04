@@ -6,21 +6,8 @@ $(document).ready(function(){
   jogadas = new Array();
 
   $('#reiniciar').click(function(e){
-      // e.preventDefault();
-      // $('.game').html('');
-      // nova_partida();
-
-      // // $('.btn-game').each(function(i){
-      // //   $(this).prop("disabled", false);
-      // //   $(this).val('');
-      // // });
-      
-      // vez = 0;
-      // delete jogadas;
-      // jogadas = new Array();
-      // console.log('click');
-
-      location.reload();
+    location.reload();
+    $('#desfazer_jogada').prop('disabled', true);
   });
 
   nova_partida();
@@ -50,7 +37,6 @@ $(document).ready(function(){
       $(this).click(function(e){
         jogadas.push($(this), i);         
         
-        //
         $('.btn-game').each(function(i){
           if($(this).val() == ''){
             $(this).prop("disabled", false);
@@ -60,24 +46,19 @@ $(document).ready(function(){
         if(vez == 0){
             $('.o').css({'color':'green'});          
             $(this).val("X");
-            $(this).prop("disabled", true);              
-            // $(this).css({'background-image': 'url("icons/cacto.png', 'background-size': 'contain'});
-            vez = 1;       
-            // $('.o').css({'color':'green'}) 
-            $('.x').css({'color':'white'});
-
+            $(this).prop("disabled", true);  
+            $('.x').css({'color':'white'});                  
+            vez = 1;                   
         }
         else{
             $('.x').css({'color':'green'})
             $(this).val('O');
             $(this).prop("disabled", true);
-            // $(this).css({'background-image': 'url("icons/praia.png', 'background-size': 'contain'});
             vez = 0;
             $('.o').css({'color':'white'});
         }
         check();
-      });      
-     
+      });           
   });
 
   function check(){
@@ -96,8 +77,7 @@ $(document).ready(function(){
           console.log('Caso 1');
           $('.btn-game').each(function(i){
             if(i == 0 || i == 4 || i == 8){
-              $(this).prop("class", "btn btn-success");
-              
+              $(this).prop("class", "btn btn-success");              
             }
             else{
               $(this).prop("class", "btn btn-outline-danger");
@@ -212,38 +192,18 @@ $(document).ready(function(){
             }
           });
         }
-       else if(caso8(values)){
-         // 2 5 8
-         game_over = true; 
-         console.log('Caso 8');
-         $('#desfazer_jogada').prop('disabled', true);
-         $('.btn-game').each(function(i){
-           if(i == 2 || i == 5 || i == 8){
-             $(this).prop("class", "btn btn-success");
-           }
-           else{
-             $(this).prop("class", "btn btn-outline-danger");
-             $(this).prop("disabled", true);
-           }
-         });
-       }else if(gameover(values)){
-         game_over = true
-           
-       }          
-    }
-
-    if(game_over){
-      console.log('Deu velha!');
-    }           
+        else if(gameover(values)){
+          game_over = true           
+        }          
+    }          
   }
 
   function caso1(values){
+
     if(values[0] != ''){
       if(values[0] == values[4] && values[4] == values[8]){
-        $('.resultado').html("Vencedor: " + values[0]);
-        $('.game').slideUp();
-        $('.game').slideDown();
-        $('.game').html("<h1>" + values[0] + "</h><br><h3>Vencedor</h3>" );
+        $('.game').html("<div class='container game-over'><span class='align-middle'>"+ values[0] + "<br>Vencedor</span></div>" );
+        $('.game-over').css({'font-size':'50pt', 'text-align':'center', 'justify-content':'center'});
 
         return true;
       }  
@@ -251,32 +211,28 @@ $(document).ready(function(){
   }
 
   function gameover(values){
+
     var cont = 0;
     for (var i = 0; i <9; i++){
       if(values[i] != ''){
         cont +=1;
       }
     }
-    console.log(cont)
-    if(cont == 9){
-        $('.resultado').html("Game Over");
-        $('.game').slideUp(3000);
-        $('.game').slideDown();
-        $('.game').html("<h1>XO</h><br><h3>Game Over</h3>" );
+
+    if(cont == 9){        
+        $('.game').html("<div class='container game-over'><span class='align-middle'>Game Over</span></div>" );
+        $('.game-over').css({'font-size':'70pt', 'position': 'absolute', 'margin-top': '6%', 'margin-bottom': '6%', 'left': '0', 'right': '0'});
         return true;
       }else{
         game_over = false;
       }
     }
     
-
   function caso2(values){
     if(values[2] != ''){
       if(values[2] == values[4] && values[4] == values[6]){
-        $('.resultado').html("Vencedor: " + values[2]);
-        $('.game').slideUp();
-        $('.game').slideDown();
-        $('.game').html("<h1>" + values[2] + "</h><br><h3>Vencedor</h3>" );
+        $('.game').html("<div class='container game-over'><span class='align-middle'>"+ values[2] + "<br>Vencedor</span></div>" );
+        $('.game-over').css({'font-size':'50pt', 'text-align':'center', 'justify-content':'center'});
         return true;
       }
     }
@@ -285,10 +241,8 @@ $(document).ready(function(){
   function caso3(values){
     if(values[0] != ''){
       if(values[0] == values[1] && values[1] == values[2]){
-        $('.resultado').html("Vencedor: " + values[0]);
-        $('.game').slideUp();
-        $('.game').slideDown();
-        $('.game').html("<h1>" + values[0] + "</h><br><h3>Vencedor</h3>" );
+        $('.game').html("<div class='container game-over'><span class='align-middle'>"+ values[0] + "<br>Vencedor</span></div>" );
+        $('.game-over').css({'font-size':'50pt', 'text-align':'center', 'justify-content':'center'});
         return true;
       }
     }
@@ -297,10 +251,9 @@ $(document).ready(function(){
   function caso4(values){
     if(values[3]){
       if(values[3] == values[4] && values[4] == values[5]){
-        $('.resultado').html("Vencedor: " + values[3]);
-        $('.game').slideUp();
-        $('.game').slideDown();
-        $('.game').html("<h1>" + values[3] + "</h><br><h3>Vencedor</h3>" );
+        $('.game').html("<div class='container game-over'><span class='align-middle'>"+ values[3] + "<br>Vencedor</span></div>" );
+        $('.game-over').css({'font-size':'50pt', 'text-align':'center', 'justify-content':'center'});
+
         return true;
       }
     }
@@ -309,10 +262,8 @@ $(document).ready(function(){
   function caso5(values){
     if(values[6]){
       if(values[6] == values[7] && values[7] == values[8]){
-        $('.resultado').html("Vencedor: " + values[6]);
-        $('.game').slideUp();
-        $('.game').slideDown();
-        $('.game').html("<h1>" + values[6] + "</h><br><h3>Vencedor</h3>" );
+        $('.game').html("<div class='container game-over'><span class='align-middle'>"+ values[6] + "<br>Vencedor</span></div>" );
+        $('.game-over').css({'font-size':'50pt', 'text-align':'center', 'justify-content':'center'});
         return true;
       }
     }
@@ -321,10 +272,8 @@ $(document).ready(function(){
   function caso6(values){
     if(values[0] != ''){
       if(values[0] == values[3] && values[3] == values[6]){
-        $('.resultado').html("Vencedor: " + values[0]);
-        $('.game').slideUp();
-        $('.game').slideDown();
-        $('.game').html("<h1>" + values[0] + "</h><br><h3>Vencedor</h3>" );
+        $('.game').html("<div class='container game-over'><span class='align-middle'>"+ values[0] + "<br>Vencedor</span></div>" );
+        $('.game-over').css({'font-size':'50pt', 'text-align':'center', 'justify-content':'center'});
         return true;
       }
     }
@@ -333,10 +282,8 @@ $(document).ready(function(){
   function caso7(values){
     if(values[1] != ''){
       if(values[1] == values[4] && values[4] == values[7]){
-        $('.resultado').html("Vencedor: " + values[1]);
-        $('.game').slideUp();
-        $('.game').slideDown();
-        $('.game').html("<h1>" + values[1] + "</h><br><h3>Vencedor</h3>" );
+        $('.game').html("<div class='container game-over'><span class='align-middle'>"+ values[1] + "<br>Vencedor</span></div>" );
+        $('.game-over').css({'font-size':'50pt', 'text-align':'center', 'justify-content':'center'});
         return true;
       }
     }
@@ -345,10 +292,8 @@ $(document).ready(function(){
   function caso8(values){
     if(values[2] != ''){
       if(values[2] == values[5] && values[5] == values[8]){
-        $('.resultado').html("Vencedor: " + values[2]);
-        $('.game').slideUp();
-        $('.game').slideDown();
-        $('.game').html("<h1>" + values[2] + "</h><br><h3>Vencedor</h3>" );
+        $('.game').html("<div class='container game-over'><span class='align-middle'>"+ values[2] + "<br>Vencedor</span></div>" );
+        $('.game-over').css({'font-size':'50pt', 'text-align':'center', 'justify-content':'center'});
         return true;
       }
     }
@@ -359,6 +304,7 @@ $(document).ready(function(){
 ********************************************/
 
 posicao = new Array();
+
 var text = '{ "questoes" : [' + 
     '{"questao":"Em 1944 foi o primeiro ano de atividades de ExpoCrato", "resposta":true},' + 
     '{"questao":"Padre Cícero nasceu em 1844 na cidade de Juazeiro do Norte, onde também foi a cidade de sua morte", "resposta":false},' + 
@@ -383,7 +329,6 @@ function posicao_random(){
     aux =  Math.floor(Math.random() * (Object.keys(dict.questoes).length))
   }
   posicao.push(aux);
-  console.log(posicao[posicao.length - 1]);
   return posicao[posicao.length - 1];
 }
 
@@ -410,8 +355,7 @@ function questoes(){
   };
 
   modalConfirm(function(confirm){
-    // console.log(dict.questoes[p].resposta);
-    // console.log(confirm);
+
     if(confirm == dict.questoes[p].resposta){
 
       var aux = jogadas[jogadas.length - 2];
@@ -431,7 +375,6 @@ function questoes(){
           }
         });
       }
-        // var aux = jogadas[jogadas.length - 1];
     }
   });
 }
