@@ -241,6 +241,8 @@ body{
         display: flex;
         flex-direction: column;
         vertical-align: center;
+        height: 28%;
+        width: 28%;
     }
     
     .btn{
