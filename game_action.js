@@ -7,7 +7,6 @@ $(document).ready(function(){
 
   $('#reiniciar').click(function(e){
     location.reload();
-    $('#desfazer_jogada').prop('disabled', true);
   });
 
   nova_partida();
@@ -26,8 +25,7 @@ $(document).ready(function(){
     html += "</div>"
   
     $('.game').html(html);
-    $('.btn-game').css({'width':'32%', 'height':'32%', 'font-size':'35pt', 'color':'black'});
-    $('#desfazer_jogada').prop('disabled', true);
+    $('.btn-game').css({'width':'32%', 'height':'32%', 'font-size':'35pt', 'color':'black'});   
   }
   
   $('.x').css({'color':'green'})

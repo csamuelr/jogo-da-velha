@@ -88,12 +88,356 @@ body{
     vertical-align: center;
 }
 
-/* 
-@media (min-width: 1024px) and (max-width: 1280px) {
+
+@media media (min-width: 1024px) and (max-width: 1280px) {
     
     body{
         background-image:  url("icons/nordeste.jpg") ;
         background-image: url("icons/back-game.png");
+        background-repeat: repeat-y;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }    
+
+    .game{    
+        height: 40%;
+        width: 40%;
+        left: 30%;
+        right: 30%;
+        top: 25%;
+        bottom: 25%;
+        background-color: white;
+        opacity: 0.7;
+        position: absolute;   
+    }
+    
+    .info{
+        height: 10%;
+        width: 40%;
+        left: 30%;
+        right: 30%;
+        top: 15%;
+        position: absolute;
+        background-color: #171717;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+        opacity: 0.8;
+    }
+    
+    .controle{
+        height: 10%;
+        width: 40%;
+        left: 30%;
+        right: 30%;
+        top: 70%;
+        position: absolute;
+        background-color: #171717;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+        opacity: 0.8;
+       
+    }
+    
+    .btns-game{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+    }
+    
+    .btn{
+        margin-left: 4px;
+        margin-right: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    
+    .btn-sm{
+        margin-top: 5%;
+        margin-left: 3%;
+        margin-right: 3%;
+        background-color: #292727;
+        font-size: 12pt;    
+    }
+    
+    .x{
+        color: white;
+        font-size: 30pt;
+        text-align: center;
+        display: flex;
+        flex-direction: column; and (max-width: 1280px) {
+    
+    bodmedia (min-width: 1024px) and (max-width: 1280px) {
+    
+    body{
+        background-image:  url("icons/nordeste.jpg") ;
+        background-image: url("icons/back-game.png");
+        background-repeat: repeat-y;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }    
+
+    .game{    
+        height: 40%;
+        width: 40%;
+        left: 30%;
+        right: 30%;
+        top: 25%;
+        bottom: 25%;
+        background-color: white;
+        opacity: 0.7;
+        position: absolute;   
+    }
+    
+    .info{
+        height: 10%;
+        width: 40%;
+        left: 30%;
+        right: 30%;
+        top: 15%;
+        position: absolute;
+        background-color: #171717;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+        opacity: 0.8;
+    }
+    
+    .controle{
+        height: 10%;
+        width: 40%;
+        left: 30%;
+        right: 30%;
+        top: 70%;
+        position: absolute;
+        background-color: #171717;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+        opacity: 0.8;
+       
+    }
+    
+    .btns-game{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+    }
+    
+    .btn{
+        margin-left: 4px;
+        margin-right: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    
+    .btn-sm{
+        margin-top: 5%;
+        margin-left: 3%;
+        margin-right: 3%;
+        background-color: #292727;
+        font-size: 12pt;    
+    }
+    
+    .x{
+        color: white;
+        font-size: 30pt;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+       media (min-width: 1024px) and (max-width: 1280px) {
+    
+    body{
+        background-image:  url("icons/nordeste.jpg") ;
+        background-image: url("icons/back-game.png");
+        background-repeat: repeat-y;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }    
+
+    .game{    
+        height: 40%;
+        width: 40%;
+        left: 30%;
+        right: 30%;
+        top: 25%;
+        bottom: 25%;
+        background-color: white;
+        opacity: 0.7;
+        position: absolute;   
+    }
+    
+    .info{
+        height: 10%;
+        width: 40%;
+        left: 30%;
+        right: 30%;
+        top: 15%;
+        position: absolute;
+        background-color: #171717;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+        opacity: 0.8;
+    }
+    
+    .controle{
+        height: 10%;
+        width: 40%;
+        left: 30%;
+        right: 30%;
+        top: 70%;
+        position: absolute;
+        background-color: #171717;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+        opacity: 0.8;
+       
+    }
+    
+    .btns-game{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+    }
+    
+    .btn{
+        margin-left: 4px;
+        margin-right: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    
+    .btn-sm{
+        margin-top: 5%;
+        margin-left: 3%;
+        margin-right: 3%;
+        background-color: #292727;
+        font-size: 12pt;    
+    }
+    
+    .x{
+        color: white;
+        font-size: 30pt;
+        text-align: center;
+        display: flex;
+        flex-direction: column; url("icons/nordeste.jpg") ;
+       media (min-width: 1024px) and (max-width: 1280px) {
+    
+    body{
+        background-image:  url("icons/nordeste.jpg") ;
+        background-image: url("icons/back-game.png");
+        background-repeat: repeat-y;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }    
+
+    .game{    
+        height: 40%;
+        width: 40%;
+        left: 30%;
+        right: 30%;
+        top: 25%;
+        bottom: 25%;
+        background-color: white;
+        opacity: 0.7;
+        position: absolute;   
+    }
+    
+    .info{
+        height: 10%;
+        width: 40%;
+        left: 30%;
+        right: 30%;
+        top: 15%;
+        position: absolute;
+        background-color: #171717;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+        opacity: 0.8;
+    }
+    
+    .controle{
+        height: 10%;
+        width: 40%;
+        left: 30%;
+        right: 30%;
+        top: 70%;
+        position: absolute;
+        background-color: #171717;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+        opacity: 0.8;
+       
+    }
+    
+    .btns-game{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+    }
+    
+    .btn{
+        margin-left: 4px;
+        margin-right: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    
+    .btn-sm{
+        margin-top: 5%;
+        margin-left: 3%;
+        margin-right: 3%;
+        background-color: #292727;
+        font-size: 12pt;    
+    }
+    
+    .x{
+        color: white;
+        font-size: 30pt;
+        text-align: center;
+        display: flex;
+        flex-direction: column;url("icons/back-game.png");
         background-repeat: repeat-y;
         height: 100%;
         width: 100%;
@@ -187,4 +531,4 @@ body{
         flex-direction: column;
         vertical-align: center;
     }
-} */
+}
