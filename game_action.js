@@ -25,7 +25,7 @@ $(document).ready(function(){
     html += "</div>"
   
     $('.game').html(html);
-    $('.btn-game').css({'width':'28%', 'height':'28%', 'font-size':'35pt', 'color':'black'});   
+    $('.btn-game').css({'width':'29%', 'height':'29%', 'font-size':'35pt', 'color':'black'});   
   }
   
   $('.x').css({'color':'green'})
